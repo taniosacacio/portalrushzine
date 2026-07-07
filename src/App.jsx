@@ -18,6 +18,7 @@ import { BuyMeCoffeeCard } from './components/ui/buy-me-coffee-card';
 import { PixCard } from './components/ui/PixCard';
 import { AboutMeSection } from './components/ui/AboutMeSection';
 import { GeddyEasterEgg } from './components/ui/GeddyEasterEgg';
+import { GeddyEasterEggV2 } from './components/ui/GeddyEasterEggV2';
 import { CardCarousel } from './components/ui/CardCarousel';
 import { translations } from './translations.jsx';
 import { BigMoneyCard } from './components/ui/BigMoneyCard';
@@ -396,10 +397,17 @@ const App = () => {
           <div className="footer-content-wrapper" style={{ display: "flex", flexDirection: "column", alignItems: "center", paddingBottom: "60px", position: "relative", zIndex: 2 }}>
             <div style={{ display: "flex", gap: "24px", flexWrap: "wrap", justifyContent: "center", width: "100%", maxWidth: "900px" }}>
               <BuyMeCoffeeCard 
+                title={<span style={{ fontFamily: "'BeyondTheLightedStage', sans-serif" }}>Quero Pagar um Café para essa Zine</span>}
+                description={<span style={{ fontSize: '1.15rem', lineHeight: '1.4', display: 'block', marginTop: '10px', fontFamily: "'BeyondTheLightedStage', sans-serif" }}>Pague um Café para a Gente para termos mais e mais <span style={{ color: '#ff8b54', fontWeight: 'bold' }}>ZINES</span></span>}
                 image={`${import.meta.env.BASE_URL}imgi_17_buy-me-a-coffee.png`} 
                 coffeeLink="https://buymeacoffee.com/portalrushzine" 
               />
               <PixCard 
+                title={<span style={{ fontFamily: "'BeyondTheLightedStage', sans-serif" }}>🇧🇷 <span style={{color: '#009c3b'}}>P</span><span style={{color: '#ffdf00'}}>I</span><span style={{color: '#009c3b'}}>X</span>-<span style={{color: '#ff8b54'}}>ZINE</span></span>}
+                description={<span style={{ fontSize: '1.15rem', lineHeight: '1.4', display: 'block', marginTop: '10px', fontFamily: "'BeyondTheLightedStage', sans-serif" }}>Faça um PIX e aumente as edições da <span style={{ color: '#ff8b54', fontWeight: 'bold' }}>ZINE</span> do Portal Rush Brasil.</span>}
+                borderColor="#009c3b"
+                borderBgColor="#ffdf00"
+                accentColor="#009c3b"
                 bannerImage={`${import.meta.env.BASE_URL}pix-qrcode.jpeg`} 
                 qrImage={`${import.meta.env.BASE_URL}pix-qrcode.jpeg`} 
               />
@@ -415,7 +423,7 @@ const App = () => {
         </div>
 
         {/* ===== TWO-COLUMN LAYOUT: VIDEO + SIDE PANEL ===== */}
-        <div id="entrevista" style={{ scrollMarginTop: '80px', marginTop: '9rem', width: '100%', position: 'relative' }}>
+        <div id="entrevista" style={{ scrollMarginTop: '80px', marginTop: '3rem', paddingTop: '4rem', width: '100%', position: 'relative' }}>
           <SectionSideLabel number="5" title="ENTREVISTA: BEATO/GEDDY LEE" />
           <h2 className="interview-section-title" style={{
             fontSize: 'clamp(1.8rem, 4vw, 3rem)',
@@ -423,7 +431,6 @@ const App = () => {
             color: '#fffdf6',
             textTransform: 'uppercase',
             textAlign: 'center',
-            marginBottom: '4.5rem',
             fontFamily: "'Neue Machina', 'Helvetica Neue', Arial, sans-serif",
             letterSpacing: '0.05em',
             textShadow: '0 4px 15px rgba(0,0,0,0.6)',
@@ -431,8 +438,9 @@ const App = () => {
             borderBottom: '4px solid #ff5a36',
             display: 'block',
             maxWidth: '1400px',
-            margin: '3rem auto 4.5rem auto',
-            boxSizing: 'border-box'
+            margin: '0 auto 4.5rem auto',
+            position: 'relative',
+            zIndex: 2
           }}>
             Geddy Lee entrevistado no Rick Beato
           </h2>
@@ -535,6 +543,27 @@ const App = () => {
           onSuccess={() => {
             setIsGershonActive(true);
             document.getElementById('grid')?.scrollIntoView({ behavior: 'smooth' });
+          }} 
+          t={t} 
+        />
+      </div>
+
+      <div id="easter-egg-v2" style={{ position: 'relative', marginTop: '4rem' }}>
+        <SectionSideLabel number="6b" title="EASTER EGG (CAIXA DE AREIA)" />
+        <h2 style={{
+            fontSize: 'clamp(1.5rem, 3vw, 2.2rem)',
+            fontWeight: '900',
+            color: '#fffdf6',
+            textAlign: 'center',
+            fontFamily: "'Bebas Neue Pro', 'Impact', sans-serif",
+            letterSpacing: '0.05em',
+            marginBottom: '2rem'
+          }}>
+            TESTE: CAIXA DE AREIA
+        </h2>
+        <GeddyEasterEggV2 
+          onSuccess={() => {
+            console.log('Easter Egg V2 solved!');
           }} 
           t={t} 
         />

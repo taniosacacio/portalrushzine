@@ -402,24 +402,25 @@
   font-weight: bold;
 }
 
-/* Goals Grid */
+/* Goals Grid (Vertical List) */
 .editorial-goals-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
   width: 100%;
-  margin-top: 8px;
+  margin-top: 16px;
 }
 
 .editorial-goal-card {
   background-color: #ff5a36;
   color: #fffdf6;
-  padding: 16px;
+  padding: 16px 24px;
   border-radius: 12px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
-  text-align: center;
+  text-align: left;
   box-shadow: 0 8px 20px rgba(255, 90, 54, 0.25);
   border: 1px solid rgba(255, 255, 255, 0.1);
   cursor: pointer;

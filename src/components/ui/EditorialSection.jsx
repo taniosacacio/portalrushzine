@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import Confetti from 'react-confetti';
+import { ArrowRight } from 'lucide-react';
 import './EditorialSection.css';
 
 export const EditorialSection = ({ t, language }) => {
@@ -268,16 +269,23 @@ export const EditorialSection = ({ t, language }) => {
                       key={idx} 
                       className={`editorial-goal-card goal-card-${idx}`}
                       whileHover={{ 
-                        scale: 1.15, 
-                        rotate: 360, 
-                        skewX: -5,
-                        borderRadius: "20% 20% 45% 45%" // Money bag / pouch shape
+                        scale: 1.02, 
+                        borderRadius: "8px 8px 8px 8px"
                       }}
                       transition={{ type: 'spring', stiffness: 200, damping: 15 }}
                       onClick={() => handleGoalClick(idx)}
                     >
-                      <span className="goal-value">{g.value}</span>
-                      <span className="goal-label">{highlightEditorialText(g.label)}</span>
+                      <span className="goal-label" style={{ flex: 1, textAlign: 'left', fontWeight: 'bold' }}>{highlightEditorialText(g.label)}</span>
+                      
+                      <motion.div
+                        animate={{ x: [0, 8, 0] }}
+                        transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+                        style={{ display: 'flex', alignItems: 'center', opacity: 0.8, padding: '0 10px' }}
+                      >
+                        <ArrowRight size={24} />
+                      </motion.div>
+
+                      <span className="goal-value" style={{ flex: 1, textAlign: 'right' }}>{g.value}</span>
                     </motion.div>
                   ))}
                 </div>
@@ -295,8 +303,36 @@ export const EditorialSection = ({ t, language }) => {
         </div>
 
         {/* Animated Infographic SVGs Section - Z-Track Layout */}
-        <div className="infographic-section-wrapper">
-          <div className="infographic-row-title">
+        <div className="infographic-section-wrapper" style={{ position: 'relative' }}>
+          
+          {/* Vertical Continuity Arrow (Minimalist & Fading) */}
+          <div style={{ position: 'absolute', top: '-60px', bottom: '-40px', right: '5%', width: '100px', zIndex: -1, pointerEvents: 'none' }}>
+            <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" viewBox="0 0 100 100">
+              <defs>
+                <linearGradient id="arrowGradient" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stopColor="#ff5a36" stopOpacity="0.8" />
+                  <stop offset="50%" stopColor="#ff5a36" stopOpacity="0.1" />
+                  <stop offset="100%" stopColor="#ffffff" stopOpacity="0.9" />
+                </linearGradient>
+              </defs>
+              
+              {/* Very smooth, subtle curved line */}
+              <path 
+                d="M 20 0 C 80 30, 80 70, 20 100" 
+                stroke="url(#arrowGradient)" 
+                strokeWidth="2"
+                strokeDasharray="4 6"
+                vectorEffect="non-scaling-stroke"
+                fill="none" 
+              />
+            </svg>
+            {/* Elegant but larger white arrowhead pointing to Section 3 */}
+            <svg width="40" height="30" viewBox="0 0 40 30" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ position: 'absolute', bottom: '-20px', left: '0px' }}>
+              <path d="M 5 0 L 20 20 L 35 0" stroke="#ffffff" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </div>
+
+          <div className="infographic-row-title" style={{ position: 'relative', zIndex: 1 }}>
             <span>{language === 'pt' ? 'MENU INTERATIVO DA ZINE' : language === 'en' ? 'INTERACTIVE ZINE MENU' : 'MENÚ INTERACTIVO DE LA ZINE'}</span>
           </div>
           

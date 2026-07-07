@@ -186,7 +186,7 @@ export const PixCard = ({
               &times;
             </button>
             <h3 style={{ color: "#333", marginTop: 0, marginBottom: "20px", fontSize: "24px", fontWeight: "bold", fontFamily: "var(--font-family, sans-serif)" }}>
-              Apoie com PIX
+              {title}
             </h3>
             <img 
               src={qrImage} 
