@@ -3,7 +3,7 @@ import React from 'react';
 export const translations = {
   pt: {
     navAEntrevista: "Entrevista: Beato/Geddy Lee",
-    navONovoCapitulo: "O Novo Capítulo",
+    navONovoCapitulo: "Sobre Anika Nilles",
     navSobreMim: "Nossa trajetória",
     navLivro: "My Effin' Life",
     navApoie: "Apoie o Portal",
@@ -108,7 +108,7 @@ export const translations = {
   },
   en: {
     navAEntrevista: "Interview: Beato/Geddy Lee",
-    navONovoCapitulo: "The New Chapter",
+    navONovoCapitulo: "About Anika Nilles",
     navSobreMim: "Our Journey",
     navLivro: "My Effin' Life",
     navApoie: "Support the Portal",
@@ -213,7 +213,7 @@ export const translations = {
   },
   es: {
     navAEntrevista: "Entrevista: Beato/Geddy Lee",
-    navONovoCapitulo: "El Nuevo Capítulo",
+    navONovoCapitulo: "Sobre Anika Nilles",
     navSobreMim: "Nuestra Trayectoria",
     navLivro: "My Effin' Life",
     navApoie: "Apoya el Portal",

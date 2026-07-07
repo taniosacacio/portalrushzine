@@ -64,19 +64,19 @@ const Blahaha3DPoster = () => {
 export const BlahahaSection = ({ t, language }) => {
   const content = {
     pt: {
-      title: 'Bláh-Bláh-Há!!!',
-      subtitle: 'AH Não, explicamos as piadas de Alex (e de Geddy Lee) em Dallas',
+      title: 'BLAH-BLAH-HA!!!',
+      subtitle: 'AH Não!!! Explicamos as piadas de Alex (e de Geddy Lee) em Dallas',
       explanationTitle: 'Explicando as Piadas',
       explanationBody: 'Alex prepara o terreno para uma piada pornográfica local, dizendo que estava tomando banho, e logo em seguida faz um trocadilho com o nome de um filme pornô dos anos 70 gravado em Dallas chamado “Debbie Does Dallas”. Ao invés de “Debbie”, Alex provoca com a rima “Geddy”. O baixista do Rush entra na brincadeira com a piada de salsicha pelo seu personagem Gershon que na verdade é seu nome de batismo.'
     },
     en: {
-      title: 'Bláh-Bláh-Há!!!',
+      title: 'BLAH-BLAH-HA!!!',
       subtitle: 'Oh No, we explain Alex\'s (and Geddy Lee\'s) jokes in Dallas',
       explanationTitle: 'Explaining the Jokes',
       explanationBody: 'Alex sets the stage for a local adult film joke, mentioning that he was showering, and immediately after makes a pun on the name of a famous 70s adult film based in Dallas called "Debbie Does Dallas". Instead of "Debbie", Alex provokes with the rhyming name "Geddy". The Rush bassist joins the fun with a sausage joke related to his character Gershon, which is actually his birth name.'
     },
     es: {
-      title: 'Bláh-Bláh-Há!!!',
+      title: 'BLAH-BLAH-HA!!!',
       subtitle: '¡Ah no, explicamos los chistes de Alex (y de Geddy Lee) en Dallas',
       explanationTitle: 'Explicando los Chistes',
       explanationBody: 'Alex prepara el terreno para un chiste local de cine para adultos, diciendo que se estaba bañando, y enseguida hace un juego de palabras con el nombre de una famosa película de los 70 rodada en Dallas llamada "Debbie Does Dallas". En lugar de "Debbie", Alex provoca con la rima "Geddy". El bajista de Rush se une al juego con un chiste de salchicha relacionado con su personaje Gershon, que en realidad es su nombre de pila.'

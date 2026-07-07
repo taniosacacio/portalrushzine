@@ -91,7 +91,7 @@ export const GeddyEasterEgg = ({ onSuccess, t }) => {
   return (
     <section className={`easter-egg-section ${isUnlocked && !showAnimationVideo ? 'reward-unlocked' : ''}`}>
       {showConfetti && <Confetti recycle={false} numberOfPieces={600} gravity={0.15} />}
-      <div className="easter-egg-header">
+      <div className="easter-egg-header" style={{ paddingTop: '3rem' }}>
         <h2>{t.easterEggTitle}</h2>
         <p className="easter-egg-subtitle">
           {isUnlocked ? "YOU GERSHED!!!" : t.easterEggSubtitle}

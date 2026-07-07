@@ -231,7 +231,35 @@ export const EditorialSection = ({ t, language }) => {
                 </p>
                 
                 {/* The Big Money Title */}
-                <h4 className="editorial-big-money-title">THE BIG MONEY</h4>
+                <motion.h4 
+                  className="editorial-big-money-title"
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: false, amount: 0.5 }}
+                  style={{ display: "inline-block" }}
+                >
+                  {"THE BIG MONEY".split("").map((char, index) => (
+                    <motion.span
+                      key={index}
+                      style={{ display: "inline-block" }}
+                      variants={{
+                        hidden: { color: "#ff5a36", y: 0 },
+                        visible: {
+                          color: ["#ff5a36", "#10b981", "#10b981"], // Turns green (money color)
+                          y: [0, -8, 0], // slight bounce
+                          transition: {
+                            duration: 0.6,
+                            delay: index * 0.08,
+                            ease: "easeInOut",
+                            times: [0, 0.4, 1]
+                          }
+                        }
+                      }}
+                    >
+                      {char === " " ? "\u00A0" : char}
+                    </motion.span>
+                  ))}
+                </motion.h4>
 
                 {/* Visual Goal/Conditions Grid (Gradated color) */}
                 <div className="editorial-goals-grid">
@@ -239,8 +267,13 @@ export const EditorialSection = ({ t, language }) => {
                     <motion.div 
                       key={idx} 
                       className={`editorial-goal-card goal-card-${idx}`}
-                      whileHover={{ scale: 1.05, rotate: idx % 2 === 0 ? 1 : -1 }}
-                      transition={{ type: 'spring', stiffness: 300 }}
+                      whileHover={{ 
+                        scale: 1.15, 
+                        rotate: 360, 
+                        skewX: -5,
+                        borderRadius: "20% 20% 45% 45%" // Money bag / pouch shape
+                      }}
+                      transition={{ type: 'spring', stiffness: 200, damping: 15 }}
                       onClick={() => handleGoalClick(idx)}
                     >
                       <span className="goal-value">{g.value}</span>

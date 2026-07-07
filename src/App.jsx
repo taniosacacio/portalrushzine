@@ -23,6 +23,7 @@ import { translations } from './translations.jsx';
 import { BigMoneyCard } from './components/ui/BigMoneyCard';
 import { EditorialSection } from './components/ui/EditorialSection';
 import { BlahahaSection } from './components/ui/BlahahaSection';
+import { SectionSideLabel } from './components/ui/SectionSideLabel';
 import './index.css';
 import './hero.css';
 
@@ -321,12 +322,13 @@ const App = () => {
             <div className="fullscreen-menu-links">
               <a href="#grid" onClick={() => setIsMenuOpen(false)}>1. {language === 'pt' ? 'Capa' : language === 'en' ? 'Cover' : 'Portada'}</a>
               <a href="#editorial" onClick={() => setIsMenuOpen(false)}>2. Editorial</a>
-              <a href="#entrevista" onClick={() => setIsMenuOpen(false)}>3. {t.navAEntrevista}</a>
-              <a href="#easter-egg" onClick={() => setIsMenuOpen(false)}>4. Easter Egg</a>
-              <a href="#anika" onClick={() => setIsMenuOpen(false)}>5. {t.navONovoCapitulo}</a>
-              <a href="#loja" onClick={() => setIsMenuOpen(false)}>6. {language === 'pt' ? 'Lojinha' : language === 'en' ? 'Store' : 'Tienda'}</a>
-              <a href="#apoio" onClick={() => setIsMenuOpen(false)}>7. {t.navApoie}</a>
-              <a href="#blahaha" onClick={() => setIsMenuOpen(false)}>9. Bláh-Bláh-Há!!!</a>
+              <a href="#apoio" onClick={() => setIsMenuOpen(false)}>3. {t.navApoie}</a>
+              <a href="#conteudos" onClick={() => setIsMenuOpen(false)}>4. 15 Anos de Conteúdos</a>
+              <a href="#entrevista" onClick={() => setIsMenuOpen(false)}>5. {t.navAEntrevista}</a>
+              <a href="#easter-egg" onClick={() => setIsMenuOpen(false)}>6. Easter Egg</a>
+              <a href="#anika" onClick={() => setIsMenuOpen(false)}>7. {t.navONovoCapitulo}</a>
+              <a href="#loja" onClick={() => setIsMenuOpen(false)}>8. {language === 'pt' ? 'Camisas do Rush' : language === 'en' ? 'Rush Shirts' : 'Camisetas de Rush'}</a>
+              <a href="#blahaha" onClick={() => setIsMenuOpen(false)}>9. BLAH-BLAH-HA!!!</a>
               <a href="#RUSH-16-Anos-Alem-do-Improvavel" onClick={() => setIsMenuOpen(false)}>10. {t.navSobreMim}</a>
               <a href="#livro" onClick={() => setIsMenuOpen(false)}>11. {t.navLivro}</a>
             </div>
@@ -371,12 +373,50 @@ const App = () => {
         </div>
 
         {/* ===== EDITORIAL SECTION (SECOND FOLD) ===== */}
-        <div id="editorial">
+        <div id="editorial" style={{ position: 'relative' }}>
+          <SectionSideLabel number="2" title="EDITORIAL" />
           <EditorialSection t={t} language={language} />
         </div>
 
+        {/* ===== SUPPORT SECTION (MOVED UP) ===== */}
+        <section className="footer" id="apoio" ref={footerRef} style={{ position: 'relative' }}>
+          <SectionSideLabel number="3" title={t.navApoie} />
+          {isFooterInView && (
+            <video 
+              className="footer-video-bg" 
+              src={`${import.meta.env.BASE_URL}Banner_Animado_Desktop.mp4`} 
+              autoPlay 
+              loop 
+              muted 
+              playsInline
+            ></video>
+          )}
+          <div className="footer-video-overlay"></div>
+
+          <div className="footer-content-wrapper" style={{ display: "flex", flexDirection: "column", alignItems: "center", paddingBottom: "60px", position: "relative", zIndex: 2 }}>
+            <div style={{ display: "flex", gap: "24px", flexWrap: "wrap", justifyContent: "center", width: "100%", maxWidth: "900px" }}>
+              <BuyMeCoffeeCard 
+                image={`${import.meta.env.BASE_URL}imgi_17_buy-me-a-coffee.png`} 
+                coffeeLink="https://buymeacoffee.com/portalrushzine" 
+              />
+              <PixCard 
+                bannerImage={`${import.meta.env.BASE_URL}pix-qrcode.jpeg`} 
+                qrImage={`${import.meta.env.BASE_URL}pix-qrcode.jpeg`} 
+              />
+            </div>
+
+          </div>
+        </section>
+
+        {/* ===== 15 ANOS DE CONTEUDOS (MOVED FROM BOTTOM) ===== */}
+        <div id="conteudos" style={{ position: 'relative', paddingTop: '4rem' }}>
+          <SectionSideLabel number="4" title="15 ANOS DE CONTEÚDOS SOBRE O RUSH" />
+          <CardCarousel />
+        </div>
+
         {/* ===== TWO-COLUMN LAYOUT: VIDEO + SIDE PANEL ===== */}
-        <div id="entrevista" style={{ scrollMarginTop: '80px', marginTop: '9rem', width: '100%' }}>
+        <div id="entrevista" style={{ scrollMarginTop: '80px', marginTop: '9rem', width: '100%', position: 'relative' }}>
+          <SectionSideLabel number="5" title="ENTREVISTA: BEATO/GEDDY LEE" />
           <h2 className="interview-section-title" style={{
             fontSize: 'clamp(1.8rem, 4vw, 3rem)',
             fontWeight: '900',
@@ -489,7 +529,8 @@ const App = () => {
       </section>
 
       {/* ===== INTERACTIVE SCULPTURE EASTER EGG ===== */}
-      <div id="easter-egg">
+      <div id="easter-egg" style={{ position: 'relative' }}>
+        <SectionSideLabel number="6" title="EASTER EGG" />
         <GeddyEasterEgg 
           onSuccess={() => {
             setIsGershonActive(true);
@@ -501,6 +542,7 @@ const App = () => {
 
       {/* ===== ANIKA NILLES SECTION (DW DRUMS STYLE) ===== */}
       <section className="anika-dw-section" id="anika" ref={anikaRef} style={{ position: 'relative', overflow: 'hidden', backgroundColor: '#111' }}>
+        <SectionSideLabel number="7" title={t.navONovoCapitulo} />
         {/* Video Background Mask */}
         <div className="anika-video-mask">
           {isAnikaInView && (
@@ -568,19 +610,44 @@ const App = () => {
         )}
       </section>
 
-      {/* ===== CARD CAROUSEL (SNAP / CENTER MODE) ===== */}
-      <div id="loja">
-        <CardCarousel />
+      {/* ===== CAMISAS DO RUSH (BANNERS MOVED FROM TOP) ===== */}
+      <div id="loja" style={{ position: 'relative', padding: '6rem 24px', backgroundColor: '#111' }}>
+        <SectionSideLabel number="8" title={language === 'pt' ? 'CAMISAS DO RUSH' : language === 'en' ? 'RUSH SHIRTS' : 'CAMISETAS DE RUSH'} />
+        <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <div className="footer-banners-container">
+            {[
+              { num: 1, href: 'https://www.camisasdorush.com.br/colecoes/geddy-lee/' },
+              { num: 2, href: 'https://www.camisasdorush.com.br/colecoes/neil-peart/' },
+              { num: 3, href: 'https://www.camisasdorush.com.br/colecoes/alex-lifeson/' },
+              { num: 4, href: 'https://www.camisasdorush.com.br/colecoes/albuns/' },
+              { num: 5, href: 'https://www.camisasdorush.com.br/colecoes/minimalista/' },
+            ].map(({ num, href }) => (
+              <a href={href} target="_blank" rel="noopener noreferrer" key={num} className="footer-banner-link"
+                onMouseEnter={(e) => { e.currentTarget.querySelector('img').style.transform = 'scale(1.05)'; }}
+                onMouseLeave={(e) => { e.currentTarget.querySelector('img').style.transform = 'scale(1)'; }}
+              >
+                <img src={`${import.meta.env.BASE_URL}banner-${num}.webp`} alt={`Coleção ${num}`} loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', transition: 'transform 0.5s ease' }} />
+              </a>
+            ))}
+          </div>
+        </div>
       </div>
 
       {/* ===== BLAH BLAH BLAH HUMOR SECTION ===== */}
-      <BlahahaSection t={t} language={language} />
+      <div style={{ position: 'relative' }}>
+        <SectionSideLabel number="9" title="BLAH-BLAH-HA!!!" />
+        <BlahahaSection t={t} language={language} />
+      </div>
 
       {/* ===== SOBRE MIM SECTION (4TH FOLD) ===== */}
-      <AboutMeSection t={t} />
+      <div style={{ position: 'relative' }}>
+        <SectionSideLabel number="10" title={t.navSobreMim} />
+        <AboutMeSection t={t} />
+      </div>
 
       {/* ===== CONTEXTUAL BOOK BANNER (MOVED DOWN) ===== */}
-      <section className="bento-hero" id="livro" style={{ minHeight: 'auto', padding: '0 5% 4rem 5%', display: 'flex', justifyContent: 'center' }}>
+      <section className="bento-hero" id="livro" style={{ minHeight: 'auto', padding: '0 5% 4rem 5%', display: 'flex', justifyContent: 'center', position: 'relative' }}>
+        <SectionSideLabel number="11" title={t.navLivro} />
         <div className="bento-grid-footer" style={{ marginTop: 0, width: '100%', maxWidth: '1200px' }}>
           <a 
             href="https://www.belasletras.com.br/loja/busca.php?loja=1194178&palavra_busca=My+Effin+Life" 
@@ -608,55 +675,8 @@ const App = () => {
 
 
 
-      {/* ===== SUPPORT & FOOTER SECTION ===== */}
-      <footer className="footer" id="apoio" ref={footerRef}>
-        {isFooterInView && (
-          <video 
-            className="footer-video-bg" 
-            src={`${import.meta.env.BASE_URL}Banner_Animado_Desktop.mp4`} 
-            autoPlay 
-            loop 
-            muted 
-            playsInline
-          ></video>
-        )}
-        <div className="footer-video-overlay"></div>
-
-        <div className="footer-content-wrapper" style={{ display: "flex", flexDirection: "column", alignItems: "center", paddingBottom: "60px", position: "relative", zIndex: 2 }}>
-          <div style={{ display: "flex", gap: "24px", flexWrap: "wrap", justifyContent: "center", width: "100%", maxWidth: "900px" }}>
-            <BuyMeCoffeeCard 
-              image={`${import.meta.env.BASE_URL}imgi_17_buy-me-a-coffee.png`} 
-              coffeeLink="https://buymeacoffee.com/portalrushzine" 
-            />
-            <PixCard 
-              bannerImage={`${import.meta.env.BASE_URL}pix-qrcode.jpeg`} 
-              qrImage={`${import.meta.env.BASE_URL}pix-qrcode.jpeg`} 
-            />
-          </div>
-
-          <div style={{ marginTop: '32px', textAlign: 'center', width: '100%' }}>
-            <p style={{ color: '#7bcfe7', fontSize: '0.85rem', fontFamily: 'var(--font-body)', letterSpacing: '0.05em', marginBottom: '0', opacity: 0.9, paddingBottom: '16px' }}>
-              15 anos de conteúdos sobre o RUSH
-            </p>
-          </div>
-          <div className="footer-banners-container">
-            {[
-              { num: 1, href: 'https://www.camisasdorush.com.br/colecoes/geddy-lee/' },
-              { num: 2, href: 'https://www.camisasdorush.com.br/colecoes/neil-peart/' },
-              { num: 3, href: 'https://www.camisasdorush.com.br/colecoes/alex-lifeson/' },
-              { num: 4, href: 'https://www.camisasdorush.com.br/colecoes/albuns/' },
-              { num: 5, href: 'https://www.camisasdorush.com.br/colecoes/minimalista/' },
-            ].map(({ num, href }) => (
-              <a href={href} target="_blank" rel="noopener noreferrer" key={num} className="footer-banner-link"
-                onMouseEnter={(e) => { e.currentTarget.querySelector('img').style.transform = 'scale(1.05)'; }}
-                onMouseLeave={(e) => { e.currentTarget.querySelector('img').style.transform = 'scale(1)'; }}
-              >
-                <img src={`${import.meta.env.BASE_URL}banner-${num}.webp`} alt={`Coleção ${num}`} loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', transition: 'transform 0.5s ease' }} />
-              </a>
-            ))}
-          </div>
-        </div>
-
+      {/* ===== FOOTER SECTION ===== */}
+      <footer className="footer">
         <div className="footer-inner">
           <div className="footer-top">
             <div className="footer-brand">
