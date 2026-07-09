@@ -138,7 +138,7 @@ export const BigMoneySection = ({ language }) => {
 
         <h3 className="big-money-subtitle hollow-text-neon">{highlightEditorialText(text.title)}</h3>
         
-        <p className="big-money-paragraph">{highlightEditorialText(text.p1)}</p>
+        <p className="rush-font-p1">{highlightEditorialText(text.p1)}</p>
         <p className="big-money-paragraph">{highlightEditorialText(text.p2)}</p>
         <p className="big-money-paragraph highlight-paragraph">{highlightEditorialText(text.p3)}</p>
 
