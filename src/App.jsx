@@ -348,29 +348,70 @@ const App = () => {
         <div className="bento-hero" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', zIndex: 10, gap: '2rem', width: '100%' }}>
           <div className="hero-zine-content-stack" style={{ width: '100%', alignItems: 'center' }}>
             <h1 className="hero-zine-header" style={{ alignItems: 'center', textAlign: 'center', width: '100%' }}>
+              {/* LOGO OFICIAL (Coruja com Batimento Laranja Lento) */}
               <img 
                 src={`${import.meta.env.BASE_URL}logo_portalrush.png`} 
                 alt="Portal Rush Brasil Logo" 
-                style={{ 
-                  height: 'auto', 
-                  width: 'clamp(120px, 20vw, 220px)', 
-                  marginBottom: '1rem', 
-                  display: 'block' 
-                }} 
+                className="hero-main-logo-anim"
               />
               <span className="hero-zine-title">PORTAL RUSH ZINE<span className="hero-title-colon">:</span></span>
               <span className="hero-zine-edition">{t.heroTitle}</span>
             </h1>
 
-            {/* Zine Cover SVG */}
-            <div className="hero-zine-cover" style={{ width: '100%', maxWidth: '1800px', marginTop: '1rem', borderRadius: '16px', overflow: 'hidden', boxShadow: '0 20px 50px rgba(0,0,0,0.7)', border: '1px solid rgba(255,255,255,0.15)' }}>
+            {/* FINAL HORIZONTAL BRANDING (Modelo 1 - Glitch Padrão) */}
+            <div className="horizontal-badge-final desktop-only-cover">
+              VERSÃO HORI
               <img 
-                src={`${import.meta.env.BASE_URL}0_CAPA_PORTAL_RUSH_ZINE.svg`} 
-                alt="Portal Rush Zine Capa" 
-                style={{ width: '100%', height: 'auto', display: 'block' }} 
+                src={`${import.meta.env.BASE_URL}ZINELOGO/Zine-Logo-Modelo-no-elements.png`} 
+                alt="Z" 
+                className="img-z" 
               />
+              ONTAL
+            </div>
+
+            {/* Zine Cover SVG & Flash Mobile Version */}
+            <div className="hero-zine-cover" style={{ width: '100%', maxWidth: '1800px', marginTop: '1rem', borderRadius: '16px', overflow: 'hidden', boxShadow: '0 20px 50px rgba(0,0,0,0.7)', border: '1px solid rgba(255,255,255,0.15)' }}>
+              
+              {/* Desktop SVG Cover */}
+              <div className="desktop-only-cover" style={{ position: 'relative' }}>
+                <img 
+                  src={`${import.meta.env.BASE_URL}0_CAPA_PORTAL_RUSH_ZINE.svg`} 
+                  alt="Portal Rush Zine Capa" 
+                  style={{ width: '100%', height: 'auto' }} 
+                />
+              </div>
+
+              {/* Mobile Flash Cover with Dynamic Ribbon */}
+              <div className="zine-flash-container mobile-only-cover">
+                <div className="flash-badge">
+                  <Zap size={14} className="flash-icon" />
+                  <span>ZINE FLASH</span>
+                </div>
+                <img 
+                  src={`${import.meta.env.BASE_URL}zine-capa-mobile-clean.png`} 
+                  alt="Entrevista Rick Beato e Geddy Lee" 
+                  className="zine-flash-bg" 
+                />
+                <div className="zine-ribbon-wrapper">
+                  <div className="zine-ribbon">
+                    <span className="dynamic-text">
+                      {t.entrevistaRibbon ? (
+                        <span dangerouslySetInnerHTML={{ __html: t.entrevistaRibbon }} />
+                      ) : (
+                        <>RICK BEATO<br />ENTREVISTA<br />GEDDY LEE</>
+                      )}
+                    </span>
+                  </div>
+                </div>
+              </div>
+
             </div>
           </div>
+        </div>
+
+        {/* Floating Lightning for Mobile Scroll */}
+        <div className="floating-lightning mobile-only-cover">
+          <Zap size={24} />
         </div>
 
         {/* ===== EDITORIAL SECTION (SECOND FOLD) ===== */}
@@ -385,7 +426,7 @@ const App = () => {
           {isFooterInView && (
             <video 
               className="footer-video-bg" 
-              src={`${import.meta.env.BASE_URL}Banner_Animado_Desktop.mp4`} 
+              src={`${import.meta.env.BASE_URL}Banner_Animado_Leve.mp4`} 
               autoPlay 
               loop 
               muted 

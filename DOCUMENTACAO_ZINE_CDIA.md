@@ -77,3 +77,28 @@ Ao ser solicitado para modificar, adicionar seções ou arrumar bugs nesta Zine,
 3. **Preservar os Segredos (Easter Eggs):** Evite refatorar arrays ou variáveis de controle (`clickSequence`) de forma que quebre a gamificação de "Konami code" que os desenvolvedores criaram.
 
 *Aguardando novos comandos para explorar e aprimorar a inteligência desta aplicação.*
+
+---
+
+## 6. ARQUITETURA E OTIMIZAÇÕES RECENTES (Última Sessão)
+
+Para fins de manutenção de contexto estrutural, as seguintes otimizações críticas foram aplicadas ao projeto:
+
+1. **Camada de Proteção de Assets Brutos (`_raw_materials/`)**:
+   - **Problema**: Arquivos fonte (PSDs, cópias JPG/PNG, vídeos grandes não comprimidos) estavam expostos na pasta `public/` e na raiz, aumentando o tamanho do repositório e correndo risco de vazamento/download indevido (ex: plugins como Image Eye).
+   - **Solução**: Criação de um "Bunker" fora do build do Vite chamado `_raw_materials/`. Todos os arquivos de edição e mídias duplicadas foram isolados lá, garantindo que `public/` tenha apenas o que a web necessita.
+
+2. **Capa Dinâmica Responsiva (Mobile Flash)**:
+   - **Problema**: O SVG estático não escalava adequadamente a legibilidade para Mobile.
+   - **Solução**: Implementação do `.zine-flash-container` e `.zine-ribbon`. A capa de celular não é um arquivo "achatado" de imagem, mas sim um empilhamento em CSS (foto limpa ao fundo + tarja flutuante). 
+   - **Tradução Nativa**: O texto da tarja foi injetado via a nova chave de tradução `entrevistaRibbon` em `translations.jsx`, garantindo que o texto traduza via código (EN/ES/PT) sem a necessidade de designers criarem uma imagem para cada idioma.
+
+3. **Performance e Conversão de Vídeo (Regra `-an` e `libx264`)**:
+   - **Problema**: Vídeos de Background como o da Timeline e do Footer pesavam 39MB e 28MB.
+   - **Solução**: Conversão via FFmpeg com o codec `libx264`, flag `crf 28` (qualidade visual estável) e remoção integral da faixa de áudio com a flag `-an` (já que as tags `<video>` rodam em `muted` nativamente para driblar o bloqueio de AutoPlay dos browsers).
+   - **KPI Gerado**: Redução de peso de arquivo de ~90%, acelerando dramaticamente o Load da página.
+
+4. **Branding Visual de Contexto (Flash vs Horizontal)**:
+   - **Contexto**: Necessidade de indicar ao usuário se ele está numa versão restrita (Mobile/Flash) ou completa (Desktop/Horizontal).
+   - **Implementação Flash (Mobile)**: Foi criado o `.flash-badge` (Selo translúcido na capa) e o `.floating-lightning` (Ícone de relâmpago fixo à tela pulsando) para constante indicação de estado durante o scroll da página.
+   - **Implementação Horizontal (Desktop)**: (Em desenvolvimento) Inserção do letreiro "HORIZONTAL" com recursos de animação avançada de CSS/Framer Motion entre o cabeçalho e a mídia principal da Hero.
