@@ -207,7 +207,8 @@ export const EditorialSection = ({ t, language }) => {
                 className="editorial-poster-image"
               />
               <p className="editorial-image-caption">
-                {highlightEditorialText("Tânios Acácio - Criador do Portal Rush Brasil tocando seu primeiro air guitar no show cover do Rush.")}
+                <span className="desktop-text">{highlightEditorialText("Tânios Acácio - Criador do Portal Rush Brasil tocando seu primeiro air guitar no show cover do Rush.")}</span>
+                <span className="mobile-text">{highlightEditorialText("Tânios Acácio no seu 1º air guitar de Rush.")}</span>
               </p>
             </div>
 

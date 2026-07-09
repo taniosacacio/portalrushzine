@@ -35,7 +35,6 @@
 .editorial-poster-frame {
   position: relative;
   width: 100%;
-  min-height: 800px;
   background-color: #ff5a36; /* Vibrant Coral Orange */
   border-radius: 20px;
   overflow: hidden;
@@ -752,8 +751,31 @@
   }
   
   .poster-content-layout {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
     gap: 40px;
+  }
+  
+  .poster-title-col,
+  .poster-text-col {
+    display: contents;
+  }
+  
+  .swiss-main-title {
+    order: 1;
+  }
+  
+  .editorial-body-wrapper {
+    order: 2;
+  }
+  
+  .editorial-poster-image-container {
+    order: 3;
+    margin: 20px auto;
+  }
+  
+  .swiss-edition-badge {
+    order: 4;
   }
   
   .swiss-geometric-bg {
