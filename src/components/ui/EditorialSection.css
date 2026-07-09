@@ -934,3 +934,20 @@
   }
 }
 
+/* Responsive Text Variants */
+.mobile-text {
+  display: none;
+}
+.desktop-text {
+  display: inline;
+}
+
+@media (max-width: 768px) {
+  .mobile-text {
+    display: inline;
+  }
+  .desktop-text {
+    display: none;
+  }
+}
+
