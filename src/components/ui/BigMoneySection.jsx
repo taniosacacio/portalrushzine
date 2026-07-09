@@ -11,7 +11,7 @@ export const BigMoneySection = ({ language }) => {
   const content = {
     pt: {
       title: 'VAI ROLAR OU VAI FLOPAR?',
-      p1: 'Temos um propósito muito claro com essa ZINE: entregar conteúdo de altíssima qualidade para os fãs, unindo conhecimento profundo e entretenimento. É o que já fazemos há mais de 15 anos, mas agora no formato mais foda que já criamos.',
+      p1: 'Temos um propósito muito claro com essa ZINE: entregar conteúdo de alta qualidade para os fãs, unindo conhecimento profundo e entretenimento. É o que já fazemos há mais de 15 anos, mas agora no formato que entrega a melhor experiência.',
       p2: 'Tem de tudo: bibliografia, novidades, curiosidades, jogos, easter eggs, comércio e o coração da parada: a HISTÓRIA DOS FÃS DE RUSH.',
       p3: 'CONTRIBUA com o seu "THE BIG MONEY" e faça a PORTAL RUSH ZINE ROLAR de vez.',
       campaignPeriodTitle: 'PERÍODO DA CAMPANHA:',
@@ -19,15 +19,15 @@ export const BigMoneySection = ({ language }) => {
       campaignEnd: 'Término: 09 de agosto',
       goalsIntro: 'A META DEFINE O RITMO:',
       goals: [
-        { label: '$400 dólares', value: 'Faremos 1 edição' },
-        { label: '$600 dólares', value: 'Faremos 2 edições' },
-        { label: '$800 dólares', value: 'Faremos 3 edições' }
+        { name: 'Bom e Modesto', label: '$400 dólares', value: 'Faremos 1 edição' },
+        { name: 'Legal, hein?!', label: '$600 dólares', value: 'Faremos 2 edições' },
+        { name: 'Estamos Ricos!', label: '$800 dólares', value: 'Faremos 3 edições' }
       ],
       note: '(Nota: Para contribuições maiores ou parcerias, entre em contato direto pelo e-mail: zine@portalrushzine.com)'
     },
     en: {
       title: 'VAI ROLAR OU VAI FLOPAR?',
-      p1: 'Temos um propósito muito claro com essa ZINE: entregar conteúdo de altíssima qualidade para os fãs, unindo conhecimento profundo e entretenimento. É o que já fazemos há mais de 15 anos, mas agora no formato mais foda que já criamos.',
+      p1: 'Temos um propósito muito claro com essa ZINE: entregar conteúdo de alta qualidade para os fãs, unindo conhecimento profundo e entretenimento. É o que já fazemos há mais de 15 anos, mas agora no formato que entrega a melhor experiência.',
       p2: 'Tem de tudo: bibliografia, novidades, curiosidades, jogos, easter eggs, comércio e o coração da parada: a HISTÓRIA DOS FÃS DE RUSH.',
       p3: 'CONTRIBUA com o seu "THE BIG MONEY" e faça a PORTAL RUSH ZINE ROLAR de vez.',
       campaignPeriodTitle: 'PERÍODO DA CAMPANHA:',
@@ -35,15 +35,15 @@ export const BigMoneySection = ({ language }) => {
       campaignEnd: 'Término: 09 de agosto',
       goalsIntro: 'A META DEFINE O RITMO:',
       goals: [
-        { label: '$400 dólares', value: 'Faremos 1 edição' },
-        { label: '$600 dólares', value: 'Faremos 2 edições' },
-        { label: '$800 dólares', value: 'Faremos 3 edições' }
+        { name: 'Bom e Modesto', label: '$400 dólares', value: 'Faremos 1 edição' },
+        { name: 'Legal, hein?!', label: '$600 dólares', value: 'Faremos 2 edições' },
+        { name: 'Estamos Ricos!', label: '$800 dólares', value: 'Faremos 3 edições' }
       ],
       note: '(Nota: Para contribuições maiores ou parcerias, entre em contato direto pelo e-mail: zine@portalrushzine.com)'
     },
     es: {
       title: 'VAI ROLAR OU VAI FLOPAR?',
-      p1: 'Temos um propósito muito claro com essa ZINE: entregar conteúdo de altíssima qualidade para os fãs, unindo conhecimento profundo e entretenimento. É o que já fazemos há mais de 15 anos, mas agora no formato mais foda que já criamos.',
+      p1: 'Temos um propósito muito claro com essa ZINE: entregar conteúdo de alta qualidade para os fãs, unindo conhecimento profundo e entretenimento. É o que já fazemos há mais de 15 anos, mas agora no formato que entrega a melhor experiência.',
       p2: 'Tem de tudo: bibliografia, novidades, curiosidades, jogos, easter eggs, comércio e o coração da parada: a HISTÓRIA DOS FÃS DE RUSH.',
       p3: 'CONTRIBUA com o seu "THE BIG MONEY" e faça a PORTAL RUSH ZINE ROLAR de vez.',
       campaignPeriodTitle: 'PERÍODO DA CAMPANHA:',
@@ -51,9 +51,9 @@ export const BigMoneySection = ({ language }) => {
       campaignEnd: 'Término: 09 de agosto',
       goalsIntro: 'A META DEFINE O RITMO:',
       goals: [
-        { label: '$400 dólares', value: 'Faremos 1 edición' },
-        { label: '$600 dólares', value: 'Faremos 2 ediciones' },
-        { label: '$800 dólares', value: 'Faremos 3 ediciones' }
+        { name: 'Bom e Modesto', label: '$400 dólares', value: 'Faremos 1 edición' },
+        { name: 'Legal, hein?!', label: '$600 dólares', value: 'Faremos 2 ediciones' },
+        { name: 'Estamos Ricos!', label: '$800 dólares', value: 'Faremos 3 ediciones' }
       ],
       note: '(Nota: Para contribuições maiores ou parcerias, entre em contato direto pelo e-mail: zine@portalrushzine.com)'
     }
@@ -165,7 +165,10 @@ export const BigMoneySection = ({ language }) => {
               transition={{ type: 'spring', stiffness: 200, damping: 15 }}
               onClick={() => handleGoalClick(idx)}
             >
-              <span className="goal-label" style={{ flex: 1, textAlign: 'left', fontWeight: 'bold' }}>{highlightEditorialText(g.label)}</span>
+              <div style={{ display: 'flex', flexDirection: 'column', flex: 1, textAlign: 'left' }}>
+                <span style={{ fontSize: '0.85rem', color: '#10b981', fontWeight: '900', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '4px' }}>{g.name}</span>
+                <span className="goal-label" style={{ fontWeight: 'bold' }}>{highlightEditorialText(g.label)}</span>
+              </div>
               
               <motion.div
                 animate={{ x: [0, 8, 0] }}
