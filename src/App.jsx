@@ -219,6 +219,7 @@ const App = () => {
 
   const t = translations[language];
   const topics = getTopics(t);
+  const hasAnyActive = expandedTopic !== null;
 
   const handleCardClick = (topic, event) => {
     // Record click history for Easter Egg
@@ -466,10 +467,15 @@ const App = () => {
             </div>
 
             {/* RIGHT: ALL TOPIC CARDS (THIN HORIZONTAL) + ACCORDION */}
-            <aside className="hero-side-panel">
+            <aside 
+              className="hero-side-panel"
+              style={{
+                maxHeight: hasAnyActive ? 'none' : undefined,
+                height: hasAnyActive ? 'auto' : undefined
+              }}
+            >
               {topics.map(topic => {
                 const isExpanded = expandedTopic === topic.id;
-                const hasAnyActive = expandedTopic !== null;
                 const isInactive = hasAnyActive && !isExpanded;
                 return (
                   <div 
