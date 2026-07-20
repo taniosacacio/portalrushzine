@@ -398,7 +398,8 @@ const App = () => {
             {/* Unified Responsive Zine Cover */}
             <div className="hero-zine-cover" style={{ width: '100%', maxWidth: '1800px', borderRadius: '16px', overflow: 'hidden', boxShadow: '0 20px 50px rgba(0,0,0,0.7)', border: '1px solid rgba(255,255,255,0.15)' }}>
               
-              <div className="hero-zine-cover-container">
+              {/* === DESKTOP COVER (oculto no mobile) === */}
+              <div className="hero-zine-cover-container cover-desktop-only">
                 <img 
                   src={`${import.meta.env.BASE_URL}02 - Capa/RUSH ZINE - COVER.png`} 
                   alt="Portal Rush Zine Cover Background" 
@@ -437,6 +438,18 @@ const App = () => {
                       </text>
                     </svg>
                   </div>
+                </div>
+              </div>
+
+              {/* === MOBILE COVER (visível apenas no mobile) === */}
+              <div className="cover-mobile-only">
+                <img 
+                  src={`${import.meta.env.BASE_URL}02 - Capa/MOBILE - PORTAL RUSH ZINE COVER - 4_5.png`} 
+                  alt="Portal Rush Zine Cover Mobile" 
+                  className="cover-mobile-image"
+                />
+                <div className="cover-mobile-text-overlay">
+                  <p className="cover-mobile-label">TÓPICOS INTERATIVOS DA ENTREVISTA DE GEDDY LEE NO RICK BEATO</p>
                 </div>
               </div>
 
