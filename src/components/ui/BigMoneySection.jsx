@@ -84,7 +84,7 @@ export const BigMoneySection = ({ language }) => {
   };
 
   const handleGoalClick = (idx) => {
-    document.getElementById('apoio')?.scrollIntoView({ behavior: 'smooth' });
+    document.getElementById('apoio-8')?.scrollIntoView({ behavior: 'smooth' });
     if (idx === 2) {
       setShowConfetti(true);
       setTimeout(() => {

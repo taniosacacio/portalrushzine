@@ -52,7 +52,7 @@ export const SectionSideLabel = ({ number, title, id, animatedLogo }) => {
           }}
         />
       )}
-      <span className="section-label-number" style={{ position: 'relative', zIndex: 2 }}>{number}.</span>
+      {number && <span className="section-label-number" style={{ position: 'relative', zIndex: 2 }}>{number}.</span>}
       <span className="section-label-text" style={{ position: 'relative', zIndex: 2 }}>{title}</span>
     </h2>
   );

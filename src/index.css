@@ -366,7 +366,7 @@ img { max-width: 100%; display: block; }
   .hero-main-layout {
     display: flex;
     flex-direction: row;
-    gap: 80px;
+    gap: 40px; /* Reduced gap to give more screen real estate to the video and panel */
     align-items: flex-start;
   }
 }
@@ -375,7 +375,7 @@ img { max-width: 100%; display: block; }
 .dashboard-video-pane {
   display: flex;
   flex-direction: column;
-  flex: 1.4;
+  flex: 2.2; /* Increased from 1.4 to make the main video player significantly larger */
   width: 100%;
 }
 
@@ -473,17 +473,13 @@ img { max-width: 100%; display: block; }
   }
 }
 
-@media (max-width: 768px) {
-  .hero-side-panel .accordion-item:nth-child(n+4) {
-    display: none;
-  }
-}
+
 
 @media (min-width: 1024px) {
   .hero-side-panel {
     max-height: none;
-    height: calc(32.8vw - 40px);
-    max-height: 418px;
+    height: auto;
+    max-height: 520px; /* Aligned to match the new taller 16:9 video frame height */
     overflow-y: auto;
     margin-top: -10px; /* align with video panel top offset */
     padding-top: 20px; /* prevent first card icon crop */

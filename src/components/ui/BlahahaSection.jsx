@@ -101,15 +101,17 @@ export const BlahahaSection = ({ t, language }) => {
       <div className="blahaha-container">
         {/* Header */}
         <div className="blahaha-header">
-          <span className="blahaha-badge">SESSION #09</span>
           <div className="blahaha-title-wrapper">
             <h2 className="blahaha-title">
               {text.title}
               {/* Zine-style cartoon open laughing mouth SVG */}
               <svg className="laughing-mouth-svg" viewBox="0 0 100 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M5 20 C20 4, 80 4, 95 20 C85 55, 15 55, 5 20 Z" fill="#fffdf6" stroke="#ff3b30" strokeWidth="5" />
-                <path d="M12 22 C25 14, 75 14, 88 22 C80 45, 20 45, 12 22 Z" fill="#ff3b30" />
-                <path d="M22 21 C30 25, 70 25, 78 21" stroke="#fffdf6" strokeWidth="4" strokeLinecap="round" />
+                {/* Mouth cavity and thick red lips */}
+                <path d="M 10 25 Q 50 15 90 25 Q 50 58 10 25 Z" fill="#121212" stroke="#ff3b30" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round" />
+                {/* White Top Teeth */}
+                <path d="M 18 24 Q 50 32 82 24 L 80 21 Q 50 21 20 21 Z" fill="#fff" />
+                {/* Pink Tongue */}
+                <path d="M 30 45 Q 50 32 70 45 Q 50 54 30 45 Z" fill="#ff7070" />
               </svg>
             </h2>
           </div>

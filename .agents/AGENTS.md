@@ -2,6 +2,7 @@
 
 ## Atalhos de Comando
 - Quando o usuário digitar `666` ou usar o termo `666`, você deve **imediatamente iniciar o processo de deploy da aplicação**, empurrando as alterações locais para o GitHub e acionando o pipeline (Coolify/MCP).
+- Quando o usuário digitar `0gcot` ou usar o termo `0gcot`, você deve **imediatamente abrir a aplicação localmente no Google Chrome do usuário** executando o comando `open -a "Google Chrome" http://localhost:5173/edicao1-rick-beato-geddy-lee/`.
 
 ## Formatação de Mensagens (Comunicação)
 - **Links Clicáveis:** Sempre que você mencionar um link (como `http://localhost:5173` ou qualquer outra URL), certifique-se de enviá-lo de forma clicável (usando a formatação padrão de markdown `<http://localhost:5173>` ou `[localhost](http://localhost:5173)`). Nunca envie URLs apenas em formato de código de texto plano se o usuário precisar clicar nelas.

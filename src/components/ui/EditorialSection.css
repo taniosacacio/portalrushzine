@@ -42,7 +42,7 @@
   border: 1px solid rgba(255, 255, 255, 0.1);
   display: flex;
   flex-direction: column;
-  padding: 60px 80px;
+  padding: 50px 60px 30px 60px; /* Reduced vertical padding */
   box-sizing: border-box;
 }
 
@@ -181,9 +181,10 @@
   z-index: 4;
   display: grid;
   grid-template-columns: 1fr 1.5fr;
-  gap: 80px;
+  gap: 48px; /* Reduced gap */
   height: 100%;
-  margin-top: 40px;
+  margin-top: 24px; /* Reduced margin */
+  align-items: start; /* Align to top to prevent stretching */
 }
 
 /* Title Column */
@@ -222,7 +223,6 @@
 }
 
 .letter-i {
-  color: #ff3b30; /* Highlighted in Coral/Red on the cream page */
   transform: scale(1.2) rotate(4deg);
   margin-left: 5px;
 }
@@ -247,7 +247,6 @@
 }
 
 .letter-a {
-  color: #ff3b30; /* Highlighted letter */
   transform: rotate(3deg) scale(1.15);
   margin-left: 2px;
 }
@@ -475,15 +474,15 @@
 .infographic-section-wrapper {
   position: relative;
   z-index: 4;
-  margin-top: 15px; /* Reduced margin to bring track closer to the content */
+  margin-top: 32px; /* Small, elegant gap immediately following the paragraphs */
   width: 100%;
   border-top: 2px dashed rgba(255, 90, 54, 0.2);
-  padding-top: 15px; /* Reduced padding */
+  padding-top: 24px;
 }
 
 .infographic-row-title {
   text-align: center;
-  margin-bottom: 60px;
+  margin-bottom: 24px;
   perspective: 800px;
 }
 
@@ -491,11 +490,11 @@
   display: inline-block;
   font-family: 'SnakesAndArrowsAltBold', 'Neue Machina', sans-serif;
   font-weight: 950;
-  font-size: clamp(2.5rem, 6.5vw, 4.5rem); /* Increased font-size 3x */
-  letter-spacing: 0.05em;
+  font-size: clamp(2rem, 5vw, 4rem); /* Ajustado para não quebrar linha */
+  letter-spacing: 0.02em;
   color: #fffdf6; /* White text */
   background-color: #ff5a36; /* Coral background block */
-  padding: 16px 48px; /* Increased padding */
+  padding: 14px 40px; /* Padding ajustado */
   border: 6px solid #fffdf6; /* Thicker borders */
   border-radius: 6px;
   transform: rotate(-2deg) skewX(-5deg);
@@ -504,6 +503,7 @@
   transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   cursor: pointer;
   user-select: none;
+  white-space: nowrap; /* Impede quebra de linha */
 }
 
 .infographic-row-title span:hover {
@@ -747,13 +747,13 @@
 
 @media (max-width: 991px) {
   .editorial-poster-frame {
-    padding: 40px;
+    padding: 24px 20px;
   }
   
   .poster-content-layout {
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 20px;
   }
   
   .poster-title-col,
@@ -763,19 +763,26 @@
   
   .swiss-main-title {
     order: 1;
+    font-size: clamp(3.0rem, 10vw, 4.4rem);
+    line-height: 0.9;
   }
   
   .editorial-body-wrapper {
     order: 2;
+    gap: 12px;
   }
   
   .editorial-poster-image-container {
     order: 3;
-    margin: 20px auto;
+    margin: 12px auto;
+    max-width: 250px;
+    padding: 6px;
+    box-shadow: 6px 6px 0px #fffdf6, 10px 10px 0px #ff5a36, 0 10px 25px rgba(0, 0, 0, 0.3);
   }
   
   .swiss-edition-badge {
     order: 4;
+    margin-top: 12px;
   }
   
   .swiss-geometric-bg {
@@ -783,10 +790,7 @@
   }
   
   .trapezoid-shape-1 {
-    width: 120%;
-    transform: skewY(-10deg);
-    bottom: -10%;
-    height: 80%;
+    display: none !important;
   }
   
   .trapezoid-shape-2 {
@@ -796,10 +800,6 @@
   .poster-brand-header {
     top: 20px;
     right: 20px;
-  }
-  
-  .swiss-main-title {
-    font-size: 5rem;
   }
   
   .poster-text-col {
@@ -813,6 +813,27 @@
   .infographic-svgs-row {
     grid-template-columns: 1fr 1fr;
   }
+  
+  /* Compact sizes for mobile readability */
+  .editorial-tagline {
+    font-size: clamp(1.2rem, 4vw, 1.6rem) !important;
+  }
+  
+  .editorial-highlight-para {
+    font-size: clamp(1.0rem, 3.2vw, 1.15rem) !important;
+    line-height: 1.35;
+  }
+  
+  .editorial-body-para {
+    font-size: clamp(1.05rem, 3.4vw, 1.25rem) !important;
+    line-height: 1.25;
+  }
+
+  /* Ocultar o menu interativo de adesivos e a fita adesiva no celular */
+  .infographic-section-wrapper,
+  .poster-stickers-tape {
+    display: none !important;
+  }
 }
 
 @media (max-width: 576px) {
@@ -821,7 +842,7 @@
   }
   
   .swiss-main-title {
-    font-size: 3.5rem;
+    font-size: clamp(2.6rem, 9.5vw, 3.5rem);
     line-height: 0.95;
     margin-top: 10px;
   }
@@ -830,24 +851,36 @@
     position: relative;
     top: 0;
     right: 0;
-    margin-bottom: 20px;
+    margin-bottom: 12px;
     align-self: flex-start;
   }
   
   .poster-brand-header span {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
   
   .editorial-poster-frame {
-    padding: 30px 20px;
+    padding: 20px 14px;
   }
   
   .swiss-edition-badge {
-    margin-top: 20px;
+    margin-top: 12px;
   }
   
   .editorial-tagline {
-    font-size: 1.8rem;
+    font-size: 1.35rem !important;
+  }
+  
+  .editorial-highlight-para {
+    font-size: 0.98rem !important;
+  }
+  
+  .editorial-body-para {
+    font-size: 1.05rem !important;
+  }
+  
+  .editorial-poster-image-container {
+    max-width: 220px;
   }
 }
 
@@ -920,9 +953,9 @@
 .poster-stickers-tape {
   position: relative;
   width: 100%;
-  height: 80px;
+  height: 60px; /* Reduced from 80px */
   overflow: hidden;
-  margin-top: 15px; /* Reduced margin from 40px */
+  margin-top: 8px; /* Reduced margin */
   border-top: 1px solid rgba(255, 90, 54, 0.15);
   border-bottom: 1px solid rgba(255, 90, 54, 0.15);
   display: flex;
@@ -972,4 +1005,773 @@
     display: none;
   }
 }
+
+/* ==========================================================================
+   Editorial Toggle Switcher
+   ========================================================================== */
+.editorial-toggle-container {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 2.5rem;
+  z-index: 10;
+  position: relative;
+}
+
+.editorial-toggle-btn {
+  background-color: #121212;
+  border: 1px solid rgba(255, 90, 54, 0.3);
+  color: #a0a0a0;
+  padding: 12px 28px;
+  border-radius: 30px;
+  font-family: 'Neue Machina', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 800;
+  font-size: 0.95rem;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  text-transform: uppercase;
+}
+
+.editorial-toggle-btn:hover {
+  border-color: #ff5a36;
+  color: #fffdf6;
+  transform: translateY(-2px);
+}
+
+.editorial-toggle-btn.active {
+  background-color: #ff5a36;
+  border-color: #ff5a36;
+  color: #fffdf6;
+  box-shadow: 0 6px 20px rgba(255, 90, 54, 0.45);
+}
+
+/* ==========================================================================
+   Editorial Index (Table of Contents) Layout
+   ========================================================================== */
+.editorial-index-frame {
+  position: relative;
+  width: 100%;
+  background-color: #0d0d0d; /* Deep premium black background */
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.85);
+  border: 1px solid rgba(255, 253, 246, 0.1);
+  padding: 60px 80px;
+  box-sizing: border-box;
+}
+
+.sumario-main-title {
+  font-family: 'SnakesAndArrowsAltBold', sans-serif;
+  font-size: clamp(2.5rem, 6vw, 5.5rem);
+  font-weight: 950;
+  color: #fffdf6;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  text-align: left;
+  z-index: 10;
+  position: relative;
+  letter-spacing: -0.04em;
+  text-shadow: 2px 2px 0px rgba(0,0,0,0.15);
+}
+
+.editorial-index-grid {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  width: 100%;
+  align-items: flex-start;
+}
+
+.editorial-index-left-col {
+  width: 24%; /* Balanced column width */
+  display: flex;
+  flex-direction: column;
+}
+
+.editorial-index-right-col {
+  width: 24%; /* Balanced column width */
+  display: flex;
+  flex-direction: column;
+  margin-top: 110px; /* Vertically aligns the list start with the left title */
+}
+
+.editorial-index-tag {
+  font-family: 'Neue Machina', sans-serif;
+  font-weight: 800;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #ff5a36;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.editorial-index-title {
+  font-family: 'SnakesAndArrowsAltBold', sans-serif;
+  font-size: clamp(1.8rem, 2.8vw, 2.5rem); /* Reduced to prevent text clipping */
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  color: #ff5a36; /* Vibrant Orange */
+  text-transform: uppercase;
+  margin: 0 0 40px 0;
+}
+
+.editorial-index-title-sub {
+  color: #ffa07a; /* Lighter peach orange */
+  transition: color 0.3s ease;
+}
+
+.editorial-index-rows-container {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  width: 100%;
+}
+
+.editorial-index-row {
+  display: flex;
+  flex-direction: column;
+  padding: 24px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+.editorial-index-row:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.editorial-index-row-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  width: 100%;
+}
+
+.editorial-index-row-title-text {
+  font-family: 'MyFavoriteHeadache', sans-serif;
+  font-size: 1.45rem;
+  font-weight: normal;
+  color: #a0a0a0; /* Clean medium-grey by default */
+  margin: 0;
+  transition: color 0.25s ease, text-shadow 0.25s ease;
+}
+
+.editorial-index-row:hover .editorial-index-row-title-text {
+  color: #ff5a36; /* Vibrant orange on hover */
+  text-shadow: 0 0 10px rgba(255, 90, 54, 0.45);
+}
+
+/* Green Color Exception for Money Folds (7 and 8) */
+.editorial-index-row-title-text.text-money-green {
+  color: #10b981; /* Exceptionally green! */
+  opacity: 0.85;
+}
+
+.editorial-index-row:hover .editorial-index-row-title-text.text-money-green {
+  color: #10b981 !important; /* Glows green on hover */
+  opacity: 1;
+  text-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+}
+
+.editorial-index-row-page {
+  font-family: 'Neue Machina', sans-serif;
+  font-size: 0.95rem; /* Increased size */
+  font-weight: 900;
+  color: #555;
+  letter-spacing: 0.05em;
+  transition: color 0.3s ease;
+}
+
+.editorial-index-row:hover .editorial-index-row-page {
+  color: #ffa07a; /* Light orange page index on hover */
+}
+
+.editorial-index-row-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.15rem; /* Increased size for description text */
+  line-height: 1.6;
+  color: #888; /* Slightly brighter grey */
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+.editorial-index-row:hover .editorial-index-row-desc {
+  color: #b0b0b0;
+}
+
+/* Right Column - Image container */
+.editorial-index-image-col {
+  width: 52%; /* Cinematic large center slide */
+  position: relative;
+  height: 72vh; /* Large height to occupy main part of area */
+}
+
+.editorial-index-sticky-image-container {
+  position: sticky;
+  top: 120px;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #050505;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+}
+
+.editorial-index-preview-img {
+  width: 100%;
+  height: 100%;
+  opacity: 0.6;
+  transition: filter 0.3s ease, object-fit 0.3s ease;
+}
+
+.editorial-index-preview-img.fit-cover {
+  object-fit: cover;
+  filter: grayscale(100%) contrast(1.15) brightness(0.9);
+}
+
+.editorial-index-preview-img.fit-contain {
+  object-fit: contain;
+  filter: grayscale(100%) contrast(1.05) brightness(0.95);
+  padding: 24px;
+}
+
+.editorial-index-preview-img.is-blur {
+  filter: blur(8px) grayscale(100%) contrast(1.1) brightness(0.75); /* Reduced blur to show a bit of the image */
+}
+
+/* Locked Content Overlay */
+.editorial-index-lock-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.45);
+  z-index: 6;
+  gap: 16px;
+}
+
+.editorial-index-lock-overlay .lock-icon {
+  width: 64px;
+  height: 64px;
+  color: #ff5a36;
+  filter: drop-shadow(0 4px 12px rgba(255, 90, 54, 0.5));
+}
+
+.editorial-index-lock-overlay .lock-text {
+  font-family: 'Neue Machina', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 900;
+  letter-spacing: 0.25em;
+  color: #ff5a36;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+}
+
+/* Orange Duotone Filter Overlay */
+.editorial-index-image-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: #ff5a36;
+  mix-blend-mode: color;
+  opacity: 0.4;
+  pointer-events: none;
+  z-index: 5;
+  transition: background-color 0.3s ease;
+}
+
+.editorial-index-image-overlay.is-green {
+  background-color: #10b981 !important;
+}
+
+.editorial-index-uplink {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  z-index: 10;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 6px 14px;
+  border-radius: 20px;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+}
+
+.editorial-index-uplink-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #ff5a36;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+.editorial-index-uplink span {
+  font-family: 'Neue Machina', sans-serif;
+  font-size: 9px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #fffdf6;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(255, 90, 54, 0.7);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 6px rgba(255, 90, 54, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(255, 90, 54, 0);
+  }
+}
+
+/* Responsive Index Styles */
+@media (max-width: 991px) {
+  .editorial-index-frame {
+    padding: 40px;
+  }
+  
+  .editorial-index-grid {
+    flex-direction: column;
+    gap: 40px;
+  }
+  
+  .editorial-index-left-col,
+  .editorial-index-right-col {
+    width: 100%;
+  }
+
+  .editorial-index-right-col {
+    margin-top: 0; /* Reset desktop margin on mobile */
+  }
+
+  .editorial-index-right-col .editorial-index-title.invisible {
+    display: none; /* Hide alignment spacer header on mobile */
+  }
+  
+  .editorial-index-image-col {
+    display: block;
+    width: 100%;
+    height: clamp(220px, 32vh, 320px);
+    margin-top: 10px;
+    margin-bottom: 24px;
+    order: -1; /* Posiciona no topo da lista em dispositivos móveis */
+  }
+  
+  .editorial-index-sticky-image-container {
+    position: relative;
+    top: 0;
+    height: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .editorial-index-frame {
+    padding: 30px 20px;
+  }
+  
+  .editorial-index-title {
+    font-size: 2.4rem;
+    margin-bottom: 25px;
+  }
+  
+  .editorial-index-row-title-text {
+    font-size: 1.2rem;
+  }
+}
+
+/* Giant background Zine logo (Watermark occupy full fold) */
+.editorial-index-logo-bg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-8deg);
+  width: 55%; /* Spans across both columns */
+  max-width: 600px;
+  opacity: 0.28; /* Increased visibility as requested */
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Logo slide overlay (Static and centered on top of the slide image via bounds to avoid transform conflict) */
+.editorial-index-logo-slide-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto; /* Centered without CSS transform */
+  width: 160px;
+  height: 200px;
+  object-fit: contain;
+  opacity: 0.35;
+  pointer-events: none;
+  z-index: 6;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.5));
+}
+
+/* Logo Z posicionado de lado (maior e à direita) */
+.editorial-index-logo-slide-side {
+  position: absolute !important;
+  top: 50% !important;
+  left: auto !important;
+  right: -10px !important;
+  bottom: auto !important;
+  margin: 0 !important;
+  transform: translateY(-50%) !important;
+  width: 280px !important;
+  height: auto !important;
+  opacity: 0.3 !important;
+  z-index: 6;
+}
+
+/* ==========================================================================
+   5 Versions of EDITORIAL Title Styles
+   ========================================================================== */
+
+/* Title Version Selector Widget */
+.title-version-selector {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 20px;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-family: 'Neue Machina', sans-serif;
+  z-index: 10;
+  width: fit-content;
+}
+
+.selector-label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  color: rgba(255, 253, 246, 0.85);
+  font-weight: 800;
+  letter-spacing: 0.05em;
+}
+
+.selector-buttons {
+  display: flex;
+  gap: 6px;
+}
+
+.version-btn {
+  background: rgba(255, 253, 246, 0.15);
+  color: #fffdf6;
+  border: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.version-btn:hover {
+  background: rgba(255, 253, 246, 0.35);
+  transform: translateY(-2px);
+}
+
+.version-btn.active {
+  background: #ffe600;
+  color: #111;
+  box-shadow: 0 4px 10px rgba(255, 230, 0, 0.35);
+}
+
+/* Style 2: Glitch Cyberpunk */
+.v2-glitch {
+  animation: v2-glitch-pulse 2s infinite alternate ease-in-out;
+}
+
+@keyframes v2-glitch-pulse {
+  0%, 100% {
+    text-shadow: 2px 2px 0px rgba(0,0,0,0.15);
+  }
+  33% {
+    text-shadow: -2px -2px 0px #00ffff, 2px 2px 0px #ffe600;
+    color: #fffdf6;
+  }
+  66% {
+    text-shadow: 2px -2px 0px #ffe600, -2px 2px 0px #00ffff;
+    color: #fff;
+  }
+}
+
+/* Style 3: Floating Wave Staggered */
+.v3-float-wrapper {
+  display: inline-block;
+  animation: v3-float-wave 2.2s infinite ease-in-out;
+}
+
+@keyframes v3-float-wave {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+/* Style 5: Outline Brutalist */
+.v5-brutal.is-outline {
+  color: #111111 !important; /* Dark fill for extreme contrast on coral background */
+  -webkit-text-stroke: 2px #fffdf6; /* White outline */
+  text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.3);
+}
+.v5-brutal.is-outline.is-yellow {
+  color: #ffe600 !important; /* Yellow fill */
+  -webkit-text-stroke: 2px #fffdf6; /* White outline */
+  text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.3);
+}
+.v5-brutal:not(.is-outline) {
+  color: #fffdf6;
+  text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.3);
+}
+
+/* ==========================================================================
+   New Geometrical Title Dispositions (Solid/Outline Brutalist Typography)
+   ========================================================================== */
+
+/* Style 2: Horizontal Row */
+.swiss-main-title.style-2 {
+  font-size: clamp(1.8rem, 3.8vw, 3rem) !important;
+  letter-spacing: 0.05em;
+  line-height: 1.2;
+}
+
+.swiss-main-title.style-2 .v-horizontal-title {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+/* Style 3: Individual Vertical Stack */
+.swiss-main-title.style-3 .v-stacked-title {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  line-height: 0.95;
+}
+
+/* Style 4: Diagonal Staircase Cascade */
+.swiss-main-title.style-4 .v-cascade-title {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  line-height: 0.95;
+}
+
+/* Style 5: Double Block (EDI-TORIAL) */
+.swiss-main-title.style-5 {
+  font-size: clamp(3rem, 6.2vw, 6.2rem) !important;
+  line-height: 0.85;
+}
+
+.swiss-main-title.style-5 .v-double-block-title {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.double-block-row {
+  display: flex;
+  gap: 8px;
+}
+
+/* Sumário Thumbnail & Orange Redirection Button */
+.editorial-index-hero-thumbnail {
+  margin: 10px 0 30px 0;
+  background-color: #fffdf6;
+  border: 3px solid #ff5a36;
+  padding: 6px;
+  border-radius: 8px;
+  box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.15);
+  transform: rotate(-3deg);
+  max-width: 240px; /* Aumentado 20% (de 200px para 240px) */
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.editorial-index-hero-thumbnail:hover {
+  transform: rotate(0deg) scale(1.03);
+  box-shadow: 8px 8px 0px rgba(255, 90, 54, 0.25);
+}
+
+.index-hero-thumb-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 4px;
+  filter: contrast(1.05);
+}
+
+.editorial-index-row-btn-wrapper {
+  margin-top: 12px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.editorial-index-row-orange-btn {
+  background-color: #ff5a36;
+  color: #fffdf6;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-family: 'Neue Machina', sans-serif;
+  font-weight: 900;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.15);
+}
+
+.editorial-index-row-orange-btn:hover {
+  background-color: #ffe600;
+  color: #111;
+  transform: translateY(-2px);
+  box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.editorial-index-row-green-btn {
+  background-color: #00e676; /* Vibrant money green */
+  color: #111111; /* Stark black text for perfect readability */
+  border: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-family: 'Neue Machina', sans-serif;
+  font-weight: 900;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.15);
+}
+
+.editorial-index-row-green-btn:hover {
+  background-color: #ffe600; /* Yellow hover */
+  color: #111;
+  transform: translateY(-2px);
+  box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+/* ==========================================================================
+   5 Glassmorphism Models for Geddy Lee Image Frame
+   ========================================================================== */
+
+/* Model 1: Frosted Cyber Glass (Light Orange Glow) */
+.editorial-index-hero-thumbnail.glass-style-1 {
+  background: rgba(255, 253, 246, 0.15) !important;
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+  border: 3px solid rgba(255, 90, 54, 0.6) !important;
+  box-shadow: 0 8px 32px 0 rgba(255, 90, 54, 0.25), inset 0 0 10px rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Model 2: Dark Polarized Obsidian Glass */
+.editorial-index-hero-thumbnail.glass-style-2 {
+  background: rgba(17, 17, 17, 0.55) !important;
+  backdrop-filter: blur(18px) !important;
+  -webkit-backdrop-filter: blur(18px) !important;
+  border: 3px solid rgba(255, 253, 246, 0.2) !important;
+  box-shadow: 0 12px 36px 0 rgba(0, 0, 0, 0.5), inset 0 0 12px rgba(255, 255, 255, 0.05) !important;
+}
+
+/* Model 3: Prismatic Aurora Glass (Purple/Orange Gradient Overlay) */
+.editorial-index-hero-thumbnail.glass-style-3 {
+  background: linear-gradient(135deg, rgba(255, 90, 54, 0.15), rgba(139, 0, 255, 0.15)) !important;
+  backdrop-filter: blur(15px) !important;
+  -webkit-backdrop-filter: blur(15px) !important;
+  border: 3px solid rgba(255, 255, 255, 0.35) !important;
+  box-shadow: 0 10px 30px rgba(139, 0, 255, 0.3), inset 0 0 15px rgba(255, 255, 255, 0.25) !important;
+}
+
+/* Model 4: Clean Float Glass (Minimal Border, Heavy Drop Shadow) */
+.editorial-index-hero-thumbnail.glass-style-4 {
+  background: rgba(255, 255, 255, 0.08) !important;
+  backdrop-filter: blur(25px) !important;
+  -webkit-backdrop-filter: blur(25px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35) !important;
+}
+
+/* Model 5: Retro Brutalist Zine Glass (Thick Dark Outline & Offset Shadow) */
+.editorial-index-hero-thumbnail.glass-style-5 {
+  background: rgba(255, 253, 246, 0.25) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border: 3px solid #111111 !important;
+  box-shadow: 6px 6px 0px #ff5a36, inset 0 0 8px rgba(255, 255, 255, 0.15) !important;
+}
+
+/* Glass Style Live Picker Widget */
+.glass-style-picker {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: rgba(17, 17, 17, 0.85);
+  border-radius: 20px;
+  padding: 3px 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  z-index: 10;
+  font-family: 'Neue Machina', sans-serif;
+  font-size: 0.65rem;
+  color: #fffdf6;
+}
+
+.glass-style-picker span {
+  font-weight: 800;
+  color: rgba(255, 253, 246, 0.6);
+}
+
+.glass-picker-btn {
+  background: none;
+  border: none;
+  color: rgba(255, 253, 246, 0.5);
+  font-size: 0.65rem;
+  font-weight: 900;
+  cursor: pointer;
+  padding: 2px 6px;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.glass-picker-btn:hover {
+  color: #fffdf6;
+}
+
+.glass-picker-btn.active {
+  color: #ff5a36;
+  background: #fffdf6;
+}
+
+
 
