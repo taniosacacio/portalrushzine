@@ -114,9 +114,22 @@ const foldsList = [
     img: 'AnikafotoPrincipal.jpeg'
   },
   {
-    id: 'blahaha-11',
+    id: 'camisas-11',
     number: '11',
     page: '11',
+    titleKey: 'navCamisas',
+    fitMode: 'contain',
+    desc: {
+      pt: 'Coleções oficiais de camisas do Rush no Brasil com temas de álbuns, integrantes e minimalistas.',
+      en: 'Official Rush shirt collections in Brazil featuring albums, band members, and minimalist designs.',
+      es: 'Colecciones oficiales de camisetas de Rush en Brasil con temas de álbumes, integrantes y minimalistas.'
+    },
+    img: 'banner-1.webp'
+  },
+  {
+    id: 'blahaha-12',
+    number: '12',
+    page: '12',
     titleKey: 'navBlahaha',
     desc: {
       pt: 'O humor e as histórias engraçadas da banda, incluindo o icônico discurso de Alex no Hall of Fame.',
@@ -126,9 +139,9 @@ const foldsList = [
     img: 'Blahaha/Alex Lifeson Laughing Dallas.png'
   },
   {
-    id: 'sobre-mim-12',
-    number: '12',
-    page: '12',
+    id: 'sobre-mim-13',
+    number: '13',
+    page: '13',
     titleKey: 'navSobreMim',
     desc: {
       pt: 'Conheça a história de 16 anos de conteúdos sobre o Rush, agora nessa Zine.',
@@ -138,9 +151,9 @@ const foldsList = [
     img: 'sobre mim - tanios acacio - portal rush referencia.png'
   },
   {
-    id: 'mail-marketing-13',
-    number: '13',
-    page: '13',
+    id: 'mail-marketing-14',
+    number: '14',
+    page: '14',
     titleFallback: 'Mail Marketing',
     desc: {
       pt: 'Receba nossas edições e novidades diretamente no seu e-mail. Faça parte da comunidade.',
@@ -150,9 +163,9 @@ const foldsList = [
     img: 'ZINELOGO/logozine.png'
   },
   {
-    id: 'livro-14',
-    number: '14',
-    page: '14',
+    id: 'livro-15',
+    number: '15',
+    page: '15',
     titleKey: 'navLivro',
     fitMode: 'contain',
     desc: {
@@ -163,9 +176,9 @@ const foldsList = [
     img: 'livrosemfundo.png'
   },
   {
-    id: 'fontes-15',
-    number: '15',
-    page: '15',
+    id: 'fontes-16',
+    number: '16',
+    page: '16',
     titleKey: 'navFontes',
     desc: {
       pt: 'Créditos e referências das imagens utilizadas nesta edição da nossa Zine.',

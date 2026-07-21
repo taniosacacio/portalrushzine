@@ -763,8 +763,16 @@
   
   .swiss-main-title {
     order: 1;
-    font-size: clamp(3.0rem, 10vw, 4.4rem);
-    line-height: 0.9;
+    font-size: clamp(2.8rem, 9.5vw, 4.4rem);
+    line-height: 0.95;
+    text-align: center !important;
+    margin: 10px auto 16px auto !important;
+    width: 100% !important;
+    display: block !important;
+  }
+  
+  .swiss-main-title .letter-span {
+    margin-left: 2px !important;
   }
   
   .editorial-body-wrapper {

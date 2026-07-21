@@ -2182,6 +2182,48 @@ img { max-width: 100%; display: block; }
   width: 100%;
 }
 
+@media (max-width: 767px) {
+  #easter-egg-7 {
+    padding-top: 1rem !important;
+  }
+
+  .easter-egg-section {
+    padding: 24px 16px !important;
+  }
+
+  .easter-egg-header {
+    margin-bottom: 12px !important;
+  }
+
+  .easter-egg-header h2 {
+    font-size: clamp(0.95rem, 4.2vw, 1.25rem) !important;
+    margin-bottom: 6px !important;
+  }
+
+  .easter-egg-subtitle {
+    font-size: clamp(0.85rem, 3.4vw, 1rem) !important;
+    line-height: 1.3 !important;
+    margin-bottom: 10px !important;
+  }
+
+  .easter-egg-container {
+    flex-direction: column !important;
+    gap: 12px !important;
+  }
+
+  .easter-egg-image-wrapper {
+    max-width: 240px !important;
+    margin: 0 auto !important;
+  }
+
+  .easter-egg-panel {
+    padding: 14px 16px !important;
+    border-radius: 16px !important;
+    max-width: 320px !important;
+    margin: 0 auto !important;
+  }
+}
+
 @media (min-width: 768px) {
   .easter-egg-container {
     flex-direction: row;
@@ -2912,4 +2954,71 @@ img { max-width: 100%; display: block; }
   border-radius: 50%;
   pointer-events: none;
   box-sizing: border-box;
+}
+
+/* ===== DOBRA 11: CAMISAS DO RUSH (BRASIL FRAME & BANNER) ===== */
+.camisas-brasil-frame {
+  background: linear-gradient(180deg, rgba(0, 156, 59, 0.15) 0%, rgba(255, 223, 0, 0.08) 50%, rgba(0, 156, 59, 0.15) 100%);
+  border: 2px solid #009c3b;
+  box-shadow: 0 0 30px rgba(0, 156, 59, 0.35), 0 0 50px rgba(255, 223, 0, 0.2);
+  border-radius: 20px;
+  padding: 36px 24px;
+  width: 100%;
+  max-width: 1250px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.camisas-main-banner-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(90deg, #009c3b 0%, #ffdf00 100%);
+  color: #0b1d12;
+  font-family: 'SnakesAndArrowsAltBold', 'Bebas Neue Pro', sans-serif;
+  font-size: clamp(1rem, 2.5vw, 1.6rem);
+  font-weight: 900;
+  padding: 16px 28px;
+  border-radius: 12px;
+  text-decoration: none;
+  box-shadow: 0 8px 25px rgba(0, 156, 59, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+.camisas-main-banner-btn:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 12px 35px rgba(255, 223, 0, 0.6);
+  color: #000;
+}
+
+.camisas-international-note {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-family: 'Montserrat', sans-serif;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 6px 18px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 223, 0, 0.4);
+}
+
+.intl-note-text {
+  font-weight: 700;
+  color: #ffdf00;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.intl-flags {
+  font-size: 1rem;
+  letter-spacing: 2px;
 }

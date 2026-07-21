@@ -33,14 +33,14 @@ const Blahaha3DPoster = () => {
       >
         {/* Base Layer: Poster without text/elements */}
         <img 
-          src={`${import.meta.env.BASE_URL}Blahaha/Dallas Show/debbie-poster-no-elements.jpeg`} 
+          src={`${import.meta.env.BASE_URL}Blahaha/debbie-poster-no-elements.jpeg`} 
           alt="Geddy Does Dallas Base Poster" 
           className="poster-layer base-layer"
         />
 
         {/* Overlay Layer: Full poster with elements popping out */}
         <motion.img 
-          src={`${import.meta.env.BASE_URL}Blahaha/Dallas Show/Debbiedoesdallas.jpg`} 
+          src={`${import.meta.env.BASE_URL}Blahaha/Debbiedoesdallas.jpg`} 
           alt="Geddy Does Dallas Full Poster" 
           className="poster-layer overlay-layer"
           style={{
@@ -97,24 +97,10 @@ export const BlahahaSection = ({ t, language }) => {
   ];
 
   return (
-    <section className="blahaha-section" id="blahaha-11" style={{ paddingTop: '4rem' }}>
+    <section className="blahaha-section" style={{ paddingTop: '0.5rem', marginTop: '0' }}>
       <div className="blahaha-container">
-        {/* Header */}
-        <div className="blahaha-header">
-          <div className="blahaha-title-wrapper">
-            <h2 className="blahaha-title">
-              {text.title}
-              {/* Zine-style cartoon open laughing mouth SVG */}
-              <svg className="laughing-mouth-svg" viewBox="0 0 100 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-                {/* Mouth cavity and thick red lips */}
-                <path d="M 10 25 Q 50 15 90 25 Q 50 58 10 25 Z" fill="#121212" stroke="#ff3b30" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round" />
-                {/* White Top Teeth */}
-                <path d="M 18 24 Q 50 32 82 24 L 80 21 Q 50 21 20 21 Z" fill="#fff" />
-                {/* Pink Tongue */}
-                <path d="M 30 45 Q 50 32 70 45 Q 50 54 30 45 Z" fill="#ff7070" />
-              </svg>
-            </h2>
-          </div>
+        {/* Header - Subtitle only (Title is handled by SectionSideLabel 12) */}
+        <div className="blahaha-header" style={{ marginBottom: '1.5rem', marginTop: '0' }}>
           <p className="blahaha-subtitle">{text.subtitle}</p>
         </div>
 

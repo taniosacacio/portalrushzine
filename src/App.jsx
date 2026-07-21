@@ -16,6 +16,7 @@ import {
 import { Floating3DWrapper } from './components/ui/3d-card';
 import { BuyMeCoffeeCard } from './components/ui/buy-me-coffee-card';
 import { PixCard } from './components/ui/PixCard';
+import { PayPalCard } from './components/ui/PayPalCard';
 import { AboutMeSection } from './components/ui/AboutMeSection';
 import { GeddyEasterEgg } from './components/ui/GeddyEasterEgg';
 import { CardCarousel } from './components/ui/CardCarousel';
@@ -333,9 +334,9 @@ const App = () => {
               <a href="#big-money-8" onClick={() => setIsMenuOpen(false)}>8. The Big Money</a>
               <a href="#apoio-9" onClick={() => setIsMenuOpen(false)}>9. {t.navApoie}</a>
               <a href="#novo-capitulo-10" onClick={() => setIsMenuOpen(false)}>10. {t.navONovoCapitulo}</a>
-              <a href="#camisas-11" onClick={() => setIsMenuOpen(false)}>{language === 'pt' ? 'Camisas do Rush' : language === 'en' ? 'Rush Shirts' : 'Camisetas de Rush'}</a>
-              <a href="#blahaha-11" onClick={() => setIsMenuOpen(false)}>11. BLAH-BLAH-HA!!!</a>
-              <a href="#sobre-mim-12" onClick={() => setIsMenuOpen(false)}>12. {t.navSobreMim}</a>
+              <a href="#camisas-11" onClick={() => setIsMenuOpen(false)}>11. {language === 'pt' ? 'Camisas do Rush' : language === 'en' ? 'Rush Shirts' : 'Camisetas de Rush'}</a>
+              <a href="#blahaha-12" onClick={() => setIsMenuOpen(false)}>12. BLAH-BLAH-HA!!!</a>
+              <a href="#sobre-mim-13" onClick={() => setIsMenuOpen(false)}>13. {t.navSobreMim}</a>
               <a href="#livro-14" onClick={() => setIsMenuOpen(false)}>14. {t.navLivro}</a>
             </div>
           </motion.div>
@@ -444,13 +445,16 @@ const App = () => {
               {/* === MOBILE COVER (visível apenas no mobile) === */}
               <div className="cover-mobile-only">
                 <img 
-                  src={`${import.meta.env.BASE_URL}02 - Capa/MOBILE - PORTAL RUSH ZINE COVER - 4_5.png`} 
+                  src={
+                    language === 'en'
+                      ? `${import.meta.env.BASE_URL}02 - Capa/TRANSLATION/EN - MOBILE - PORTAL RUSH ZINE COVER.png`
+                      : language === 'es'
+                      ? `${import.meta.env.BASE_URL}02 - Capa/TRANSLATION/ES - MOBILE - PORTAL RUSH ZINE COVER.png`
+                      : `${import.meta.env.BASE_URL}02 - Capa/TRANSLATION/BR MOBILE - PORTAL RUSH ZINE COVER.png`
+                  } 
                   alt="Portal Rush Zine Cover Mobile" 
                   className="cover-mobile-image"
                 />
-                <div className="cover-mobile-text-overlay">
-                  <p className="cover-mobile-label">TÓPICOS INTERATIVOS DA ENTREVISTA DE GEDDY LEE NO RICK BEATO</p>
-                </div>
               </div>
 
             </div>
@@ -613,7 +617,7 @@ const App = () => {
         <div className="footer-video-overlay"></div>
 
         <div className="footer-content-wrapper" style={{ display: "flex", flexDirection: "column", alignItems: "center", paddingBottom: "60px", position: "relative", zIndex: 2 }}>
-          <div style={{ display: "flex", gap: "24px", flexWrap: "wrap", justifyContent: "center", width: "100%", maxWidth: "900px" }}>
+          <div style={{ display: "flex", gap: "24px", flexWrap: "wrap", justifyContent: "center", width: "100%", maxWidth: "1250px" }}>
             <BuyMeCoffeeCard 
               title={<span style={{ fontFamily: "'BeyondTheLightedStage', sans-serif" }}>Quero Pagar um Café para essa Zine</span>}
               description={<span style={{ fontSize: '1.15rem', lineHeight: '1.4', display: 'block', marginTop: '10px', fontFamily: "'BeyondTheLightedStage', sans-serif" }}>Pague um Café para a Gente para termos mais e mais <span style={{ color: '#ff8b54', fontWeight: 'bold' }}>ZINES</span></span>}
@@ -628,6 +632,16 @@ const App = () => {
               accentColor="#009c3b"
               bannerImage={`${import.meta.env.BASE_URL}pix-qrcode.jpeg`} 
               qrImage={`${import.meta.env.BASE_URL}pix-qrcode.jpeg`} 
+            />
+            <PayPalCard 
+              title={<span style={{ fontFamily: "'BeyondTheLightedStage', sans-serif" }}>💳 PayPal Internacional</span>}
+              description={<span style={{ fontSize: '1.15rem', lineHeight: '1.4', display: 'block', marginTop: '10px', fontFamily: "'BeyondTheLightedStage', sans-serif" }}>Faça sua contribuição internacional com segurança via <span style={{ color: '#0079C1', fontWeight: 'bold' }}>PayPal</span>.</span>}
+              buttonText="Doar via PayPal 💳"
+              borderColor="#0079C1"
+              borderBgColor="rgba(0, 121, 193, 0.3)"
+              accentColor="#0079C1"
+              image={`${import.meta.env.BASE_URL}imgi_17_buy-me-a-coffee.png`}
+              paypalLink="https://www.paypal.com/donate/?hosted_button_id=ZD7N6PHUEWLSS"
             />
           </div>
         </div>
@@ -664,56 +678,38 @@ const App = () => {
             </a>
           </div>
         </div>
-
-        {/* Bottom Collection Grid (HIDDEN BACKUP) */}
-        {false && (
-          <div className="anika-dw-grid-section" style={{ position: 'relative', overflow: 'hidden' }}>
-            <div className="anika-grid-header" style={{ position: 'relative', zIndex: 2 }}>
-              <h3>{t.anikaGridTitle}</h3>
-              <p>{t.anikaGridSubtitle}</p>
-            </div>
-
-            <div className="anika-dw-grid" style={{ position: 'relative', zIndex: 2 }}>
-              <div className="anika-dw-card">
-                <Floating3DWrapper className="anika-card-img-wrapper">
-                  <img src={`${import.meta.env.BASE_URL}anika_prato.png`} alt="Técnica Rítmica - Anika Nilles" style={{ objectPosition: 'top' }} />
-                </Floating3DWrapper>
-                <span className="anika-card-label">{t.anikaLabel1}</span>
-              </div>
-              <div className="anika-dw-card">
-                <Floating3DWrapper className="anika-card-img-wrapper">
-                  <img src={`${import.meta.env.BASE_URL}anika_ensaio_intenso.png`} alt="Ensaios Intensos - Anika Nilles" />
-                </Floating3DWrapper>
-                <span className="anika-card-label">{t.anikaLabel2}</span>
-              </div>
-              <div className="anika-dw-card">
-                <Floating3DWrapper className="anika-card-img-wrapper">
-                  <img src={`${import.meta.env.BASE_URL}trio_pb.png`} alt="Novo Setlist - Geddy, Alex e Anika" />
-                </Floating3DWrapper>
-                <span className="anika-card-label">{t.anikaLabel3}</span>
-              </div>
-              <div className="anika-dw-card">
-                <Floating3DWrapper className="anika-card-img-wrapper">
-                  <img src={`${import.meta.env.BASE_URL}anika_energia.png`} alt="Energia Contagiante - Anika Nilles" />
-                </Floating3DWrapper>
-                <span className="anika-card-label">{t.anikaLabel4}</span>
-              </div>
-            </div>
-          </div>
-        )}
       </section>
 
-       {/* ===== CAMISAS DO RUSH (BANNERS MOVED FROM TOP) ===== */}
+       {/* ===== CAMISAS DO RUSH (DOBRA 11) ===== */}
       <div id="camisas-11" style={{ position: 'relative', padding: '4rem 24px 6rem 24px', backgroundColor: '#111' }}>
-        <SectionSideLabel number="" title={t.navCamisas} />
-        <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        <SectionSideLabel number="11" title={t.navCamisas} />
+        
+        {/* Moldura com efeito Verde e Amarelo (Exclusivo Brasil) */}
+        <div className="camisas-brasil-frame">
+          
+          {/* Banner Clicável Principal com UTM */}
+          <a 
+            href="https://www.camisasdorush.com.br/?utm_source=portalrushzine&utm_medium=website&utm_campaign=zine_edicao1" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="camisas-main-banner-btn"
+          >
+            <span>🇧🇷 camisasdorush.com.br (disponível no Brasil)</span>
+          </a>
+
+          {/* Nota Internacional com Bandeiras */}
+          <div className="camisas-international-note">
+            <span className="intl-note-text">I Wanna / Lo Quiero</span>
+            <span className="intl-flags">🇨🇦 🇺🇸 🇬🇧 / 🇪🇸</span>
+          </div>
+
           <div className="footer-banners-container">
             {[
-              { num: 1, href: 'https://www.camisasdorush.com.br/colecoes/geddy-lee/' },
-              { num: 2, href: 'https://www.camisasdorush.com.br/colecoes/neil-peart/' },
-              { num: 3, href: 'https://www.camisasdorush.com.br/colecoes/alex-lifeson/' },
-              { num: 4, href: 'https://www.camisasdorush.com.br/colecoes/albuns/' },
-              { num: 5, href: 'https://www.camisasdorush.com.br/colecoes/minimalista/' },
+              { num: 1, href: 'https://www.camisasdorush.com.br/colecoes/geddy-lee/?utm_source=portalrushzine&utm_medium=website&utm_campaign=zine_edicao1' },
+              { num: 2, href: 'https://www.camisasdorush.com.br/colecoes/neil-peart/?utm_source=portalrushzine&utm_medium=website&utm_campaign=zine_edicao1' },
+              { num: 3, href: 'https://www.camisasdorush.com.br/colecoes/alex-lifeson/?utm_source=portalrushzine&utm_medium=website&utm_campaign=zine_edicao1' },
+              { num: 4, href: 'https://www.camisasdorush.com.br/colecoes/albuns/?utm_source=portalrushzine&utm_medium=website&utm_campaign=zine_edicao1' },
+              { num: 5, href: 'https://www.camisasdorush.com.br/colecoes/minimalista/?utm_source=portalrushzine&utm_medium=website&utm_campaign=zine_edicao1' },
             ].map(({ num, href }) => (
               <a href={href} target="_blank" rel="noopener noreferrer" key={num} className="footer-banner-link"
                 onMouseEnter={(e) => { e.currentTarget.querySelector('img').style.transform = 'scale(1.05)'; }}
@@ -726,19 +722,19 @@ const App = () => {
         </div>
       </div>
 
-      {/* ===== BLAH BLAH BLAH HUMOR SECTION ===== */}
-      <div id="blahaha-11" style={{ position: 'relative' }}>
-        <SectionSideLabel number="11" title={t.navBlahaha} />
+      {/* ===== BLAH BLAH BLAH HUMOR SECTION (DOBRA 12) ===== */}
+      <div id="blahaha-12" style={{ position: 'relative' }}>
+        <SectionSideLabel number="12" title={t.navBlahaha} />
         <BlahahaSection t={t} language={language} />
       </div>
 
-      {/* ===== SOBRE MIM SECTION (4TH FOLD) ===== */}
-      <div id="sobre-mim-12" style={{ position: 'relative' }}>
-        <SectionSideLabel number="12" title={t.navSobreMim} />
+      {/* ===== SOBRE MIM SECTION (DOBRA 13) ===== */}
+      <div id="sobre-mim-13" style={{ position: 'relative' }}>
+        <SectionSideLabel number="13" title={t.navSobreMim} />
         <AboutMeSection t={t} />
       </div>
 
-      {/* ===== CONTEXTUAL BOOK BANNER (MOVED DOWN) ===== */}
+      {/* ===== CONTEXTUAL BOOK BANNER (DOBRA 14) ===== */}
       <section className="bento-hero" id="livro-14" style={{ minHeight: 'auto', padding: '4rem 5% 4rem 5%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', position: 'relative' }}>
         <SectionSideLabel number="14" title={t.navLivro} />
         <div className="bento-grid-footer" style={{ marginTop: 0, width: '100%', maxWidth: '1200px' }}>

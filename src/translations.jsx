@@ -134,7 +134,7 @@ export const translations = {
     easterEggError3: "You're cheating like a Genius. My Name is: GERSHON.",
     easterEggRewardQuote: <>“Você provavelmente me conhece como Geddy Lee, mas meu nome de batismo é <span style={{ whiteSpace: 'nowrap' }}>Gershon Eliezer Weinrib.</span>”</>,
     easterEggRewardTitle: "My Effin' Life - A autobiografia de Geddy Lee",
-    easterEggRewardDesc: <>O Portal Rush Brasil e a Editora Belas Letras liberaram <strong>10% de Desconto</strong> para você!</>,
+    easterEggRewardDesc: <>Disponível apenas no Brasil. O Portal Rush Brasil e a Editora Belas Letras liberaram <strong>10% de Desconto</strong> para você!</>,
     easterEggCouponLabel: "CUPOM:",
   },
   en: {
@@ -270,7 +270,7 @@ export const translations = {
     easterEggError3: "You're cheating like a Genius. My Name is: GERSHON.",
     easterEggRewardQuote: <>“You probably know me as Geddy Lee, but my given name is <span style={{ whiteSpace: 'nowrap' }}>Gershon Eliezer Weinrib.</span>”</>,
     easterEggRewardTitle: "My Effin' Life - Geddy Lee's Autobiography",
-    easterEggRewardDesc: <>Portal Rush Brasil and Belas Letras Publisher have released a <strong>10% Discount</strong> for you!</>,
+    easterEggRewardDesc: <>Available in Brazil only. Portal Rush Brasil and Belas Letras Publisher have released a <strong>10% Discount</strong> for you!</>,
     easterEggCouponLabel: "COUPON:",
   },
   es: {

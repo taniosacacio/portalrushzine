@@ -164,26 +164,27 @@ export const BigMoneySection = ({ language }) => {
               key={idx} 
               className={`big-money-goal-card bg-money-card-${idx}`}
               whileHover={{ 
-                scale: 1.03,
-                rotateZ: idx % 2 === 0 ? 1 : -1
+                scale: 1.02,
               }}
               transition={{ type: 'spring', stiffness: 200, damping: 15 }}
               onClick={() => handleGoalClick(idx)}
             >
-              <div style={{ display: 'flex', flexDirection: 'column', flex: 1, textAlign: 'left' }}>
+              <div className="goal-card-main-info">
                 <span className="goal-name-title">{g.name}</span>
-                <span className="goal-label" style={{ fontWeight: 'bold', color: '#10b981', textShadow: '0 2px 4px rgba(0,0,0,0.8)', fontSize: '2.5rem', marginTop: '4px' }}>{highlightEditorialText(g.label)}</span>
+                <span className="goal-label">{highlightEditorialText(g.label)}</span>
               </div>
               
-              <motion.div
-                animate={{ x: [0, 8, 0] }}
-                transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
-                style={{ display: 'flex', alignItems: 'center', opacity: 0.8, padding: '0 10px' }}
-              >
-                <ArrowRight size={24} />
-              </motion.div>
+              <div className="goal-card-right-info">
+                <motion.div
+                  animate={{ x: [0, 6, 0] }}
+                  transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+                  style={{ display: 'flex', alignItems: 'center', opacity: 0.9 }}
+                >
+                  <ArrowRight size={22} color="#10b981" />
+                </motion.div>
 
-              <span className="goal-value" style={{ flex: 1, textAlign: 'right', color: '#fffdf6', fontWeight: '900', textShadow: '0 2px 4px rgba(0,0,0,0.8)', fontSize: '1.8rem' }}>{g.value}</span>
+                <span className="goal-value">{g.value}</span>
+              </div>
             </motion.div>
           ))}
         </div>
